@@ -3514,7 +3514,7 @@ MemberList::MemberMap MagicType::nativeMembers(ContractDefinition const*) const
 			{"difficulty", make_shared<IntegerType>(256)},
 			{"number", make_shared<IntegerType>(256)},
 			{"gaslimit", make_shared<IntegerType>(256)},
-			{"random", make_shared<IntegerType>(256)}
+			{"random", make_shared<FixedBytesType>(32)} //FixedBytesType最大只能取32字节
 		});
 	case Kind::Message:
 		return MemberList::MemberMap({
