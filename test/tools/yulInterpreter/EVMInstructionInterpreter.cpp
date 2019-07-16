@@ -320,10 +320,10 @@ u256 EVMInstructionInterpreter::eval(
 		logMemoryRead(arg[1], arg[2]);
 		logTrace(_instruction, arg);
 		return 0xcccccc + arg[1];
-	/*case Instruction::CREATE2:
+	case Instruction::CREATE2:
 		logMemoryRead(arg[2], arg[3]);
 		logTrace(_instruction, arg);
-		return 0xdddddd + arg[1];*/
+		return 0xdddddd + arg[1];
 	case Instruction::CALL:
 	case Instruction::CALLCODE:
 		// TODO assign returndata
