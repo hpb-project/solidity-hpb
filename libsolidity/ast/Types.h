@@ -1014,7 +1014,8 @@ public:
 		ABIEncodeWithSignature,
 		ABIDecode,
 		GasLeft, ///< gasleft()
-		MetaType ///< type(...)
+		MetaType, ///< type(...)
+		ZSCVerify
 	};
 
 	Category category() const override { return Category::Function; }

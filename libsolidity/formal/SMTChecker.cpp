@@ -566,6 +566,7 @@ void SMTChecker::endVisit(FunctionCall const& _funCall)
 		break;
 	case FunctionType::Kind::KECCAK256:
 	case FunctionType::Kind::ECRecover:
+	case FunctionType::Kind::ZSCVerify:
 	case FunctionType::Kind::SHA256:
 	case FunctionType::Kind::RIPEMD160:
 	case FunctionType::Kind::BlockHash:

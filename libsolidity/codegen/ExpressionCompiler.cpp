@@ -850,6 +850,7 @@ bool ExpressionCompiler::visit(FunctionCall const& _functionCall)
 				m_context << Instruction::MULMOD;
 			break;
 		}
+		case FunctionType::Kind::ZSCVerify:
 		case FunctionType::Kind::ECRecover:
 		case FunctionType::Kind::SHA256:
 		case FunctionType::Kind::RIPEMD160:
@@ -858,7 +859,8 @@ bool ExpressionCompiler::visit(FunctionCall const& _functionCall)
 			static map<FunctionType::Kind, u256> const contractAddresses{
 				{FunctionType::Kind::ECRecover, 1},
 				{FunctionType::Kind::SHA256, 2},
-				{FunctionType::Kind::RIPEMD160, 3}
+				{FunctionType::Kind::RIPEMD160, 3},
+				{FunctionType::Kind::ZSCVerify, 9},
 			};
 			m_context << contractAddresses.at(function.kind());
 			for (unsigned i = function.sizeOnStack(); i > 0; --i)
@@ -1218,6 +1220,7 @@ bool ExpressionCompiler::visit(MemberAccess const& _memberAccess)
 				case FunctionType::Kind::Log3:
 				case FunctionType::Kind::Log4:
 				case FunctionType::Kind::ECRecover:
+				case FunctionType::Kind::ZSCVerify:
 				case FunctionType::Kind::SHA256:
 				case FunctionType::Kind::RIPEMD160:
 				default:
