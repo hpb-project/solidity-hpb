@@ -90,7 +90,7 @@ enum class Instruction: uint8_t
 	NUMBER,				///< get the block's number
 	DIFFICULTY,			///< get the block's difficulty
 	GASLIMIT,			///< get the block's gas limit
-	RANDOM,
+
 
 	POP = 0x50,			///< remove item from stack
 	MLOAD,				///< load word from memory
@@ -188,6 +188,9 @@ enum class Instruction: uint8_t
 	RETURNSUB,          ///< return to subroutine jumped from -- not part of Instructions.cpp
 	PUTLOCAL,           ///< pop top of stack to local variable -- not part of Instructions.cpp
 	GETLOCAL,           ///< push local variable to top of stack -- not part of Instructions.cpp
+
+    // start index for custom opcode for hpb.
+    RANDOM = 0xef,
 
 	CREATE = 0xf0,		///< create a new account with associated code
 	CALL,				///< message-call into an account
